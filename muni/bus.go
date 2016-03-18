@@ -3,23 +3,20 @@ package muni
 import "fmt"
 
 //Bus a muni bus
-type Bus struct {
-	Plate string
+type bus struct {
 	Color string
-	Brand string
+	Transport
+}
+
+func NewBus(color string) Vehicle {
+	return &bus{Color: color}
 }
 
 //Move the bus starts moving
-func (b *Bus) Move() error {
-	d, err := b.Description()
-	if err != nil {
-		return err
-	}
-	fmt.Printf(d)
-	return nil
+func (b *bus) Move() {
+	fmt.Print("Moving a bus ...\n")
 }
 
-//Description the bus description
-func (b *Bus) Description() (string, error) {
-	return fmt.Sprintf("Bus moving Placa: %s Marca: %s Color: %s...\n", b.Plate, b.Brand, b.Color), nil
+func (b *bus) Ring() {
+	fmt.Print("Ringing the bus bell....\n")
 }

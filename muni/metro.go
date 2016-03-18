@@ -1,7 +1,11 @@
+package muni
 
+import "fmt"
 
 type Metro struct {
-	Color string
-	Plate string
-	Brand string
+	Transport
+}
+
+func (m *Metro) Move() {
+	fmt.Print("Moving metro..\n")
 }
